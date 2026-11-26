@@ -1,3 +1,4 @@
+/*
 // Preguntas nuevas de Microeconomía (IDs 26 a 115) — Banco histórico UTN FRC (2021-2025) + Daypo
 // Este archivo agrega automáticamente las 90 preguntas nuevas al array ALL_QUESTIONS cargado en preguntas.js
 ALL_QUESTIONS.push(
@@ -92,3 +93,4 @@ ALL_QUESTIONS.push(
   {"id": 114, "type": "single", "text": "¿Cómo se define una necesidad recurrente?", "options": ["Aquella que vuelve a aparecer después de un cierto lapso tras ser satisfecha.", "Aquella que solo experimentan las sociedades avanzadas tecnológicamente.", "Aquella que surge únicamente como consecuencia de otra necesidad previa.", "Aquella que es imposible de satisfacer debido a limitaciones físicas."], "correct": [0], "explanation": "Respuesta correcta Daypo UTN: Aquella que vuelve a aparecer después de un cierto lapso tras ser satisfecha (por ejemplo, alimentarse o descansar)."},
   {"id": 115, "type": "tf", "text": "La hipótesis de la mano invisible propuesta por Adam Smith sugiere que el mercado se regula solo, sin intervención externa.", "options": ["Verdadero", "Falso"], "correct": [0], "explanation": "Respuesta correcta Daypo UTN: Verdadero."}
 );
+/*
