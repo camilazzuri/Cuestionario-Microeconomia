@@ -52,8 +52,6 @@
     .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-bottom:25px}
     .menu-btn{padding:14px 18px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:12px;cursor:pointer;font-size:.95em;font-weight:600;transition:.2s;font-family:inherit}
     .menu-btn:hover{background:var(--hov);border-color:var(--pri);transform:translateY(-2px);box-shadow:0 0 18px rgba(0,255,102,.32)}
-    
-    /* Botón Simulacro: ÚNICO botón en Fucsia Flúo */
     .exam-btn{
       grid-column:1/-1;
       background:linear-gradient(135deg,#ff007f,#ff1e8e 50%,#e60073);
@@ -70,8 +68,6 @@
       border-color:#ffb3d9;
       box-shadow:0 0 34px rgba(255,0,127,.9),0 6px 20px rgba(255,0,127,.55);
     }
-
-    /* Botón Todas las preguntas: Verde Flúo */
     .all-btn{
       grid-column:1/-1;
       background:linear-gradient(135deg,#00e65b,#00ff66);
@@ -87,7 +83,6 @@
       border-color:#b3ffd1;
       box-shadow:0 0 30px rgba(0,255,102,.8),0 6px 18px rgba(0,255,102,.45);
     }
-
     .marked-btn{border-color:var(--warn);color:var(--star)}
     .retry-btn{border-color:var(--bad);color:#ff809f}
     .menu-btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important;box-shadow:none!important}
@@ -100,4 +95,370 @@
     .top-btn:hover{background:var(--hov);border-color:var(--pri);color:var(--tx)}
     .pbar{background:var(--card);border:1px solid var(--bd);border-radius:10px;height:8px;margin-bottom:20px;overflow:hidden}
     .pbar div{background:linear-gradient(90deg,#00cc52,#00ff66);box-shadow:0 0 12px rgba(0,255,102,.7);height:100%;width:0;transition:width .3s}
-    .palette{display:none;flex-wrap:wrap;gap:6px;margin:0 0 20px;padding:15px;background:var(--card);border:1px
+    .palette{display:none;flex-wrap:wrap;gap:6px;margin:0 0 20px;padding:15px;background:var(--card);border:1px solid var(--bd);border-radius:12px;max-height:160px;overflow-y:auto}
+    .pi{width:32px;height:32px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--mut);font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+    .pi.cur{background:var(--pri);color:#031c0e;border-color:#80ffb3;box-shadow:0 0 10px rgba(0,255,102,.6)}
+    .pi.ok{background:var(--okb);border-color:var(--ok);color:var(--pri)}
+    .pi.par{background:var(--warnb);border-color:var(--warn);color:var(--star)}
+    .pi.no{background:var(--badb);border-color:var(--bad);color:#ff809f}
+    .pi.st:after{content:"★";position:absolute;top:-5px;right:-5px;font-size:9px;color:var(--star)}
+    .qcard{background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--pri);border-radius:16px;padding:26px 30px;margin-bottom:20px;box-shadow:0 4px 25px rgba(0,0,0,.45);text-align:left}
+    .qcard.ok{border-left-color:var(--ok)}.qcard.par{border-left-color:var(--warn)}.qcard.no{border-left-color:var(--bad)}
+    .qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+    .badge{padding:4px 12px;border-radius:20px;font-size:.78em;font-weight:700;text-transform:uppercase}
+    .b-single{background:rgba(0,255,102,.18);color:#66ff99;border:1px solid rgba(0,255,102,.4)}
+    .b-multi{background:rgba(57,255,20,.18);color:#99ff66;border:1px solid rgba(57,255,20,.4)}
+    .b-tf{background:rgba(16,185,129,.22);color:#6ee7b7;border:1px solid rgba(16,185,129,.45)}
+    .b-text{background:rgba(250,204,21,.20);color:#fde047;border:1px solid rgba(250,204,21,.4)}
+    .star-btn{background:transparent;border:1px solid var(--bd);color:var(--dim);border-radius:20px;padding:4px 12px;font-size:.85em;cursor:pointer;font-weight:600;font-family:inherit}
+    .star-btn:hover,.star-btn.on{border-color:var(--star);color:var(--star);background:var(--warnb)}
+    .qtext{font-size:1.15em;font-weight:600;margin-bottom:20px}
+    .opts{list-style:none}.opts li{margin-bottom:10px}
+    .opt{display:flex;align-items:flex-start;gap:12px;padding:13px 18px;border:1px solid var(--bd);border-radius:12px;cursor:pointer;transition:.2s;background:rgba(6,41,24,.7)}
+    .opt:hover{border-color:var(--pri);background:var(--hov);box-shadow:0 0 12px rgba(0,255,102,.2)}
+    .opt input{margin-top:4px;accent-color:var(--pri);transform:scale(1.15)}
+    .key{background:#062918;border:1px solid var(--bd2);color:var(--pri);border-radius:4px;padding:1px 6px;font-size:.8em;font-family:monospace;font-weight:700;margin-right:4px}
+    .opt.sel{border-color:var(--pri);background:var(--pril);box-shadow:0 0 0 1px var(--pri),0 0 14px rgba(0,255,102,.25)}
+    .opt.right{border-color:var(--ok)!important;background:var(--okb)!important;color:#bbf7d0}
+    .opt.wrong{border-color:var(--bad)!important;background:var(--badb)!important;color:#fecdd3}
+    .tin{width:100%;max-width:500px;background:#062918;border:2px solid var(--bd2);border-radius:12px;padding:14px 18px;font-size:1.1em;color:#fff;font-weight:600;outline:none;font-family:inherit}
+    .tin:focus{border-color:var(--pri);box-shadow:0 0 16px rgba(0,255,102,.4)}
+    .tin.right{border-color:var(--ok);background:var(--okb);color:var(--pri)}
+    .tin.wrong{border-color:var(--bad);background:var(--badb);color:#ff809f}
+    .fb{margin-top:18px;padding:14px 18px;border-radius:10px;font-weight:600;display:none}
+    .fb.show{display:block}
+    .fb.ok{background:var(--okb);border:1px solid var(--ok);color:var(--pri)}
+    .fb.par{background:var(--warnb);border:1px solid var(--warn);color:var(--star)}
+    .fb.no{background:var(--badb);border:1px solid var(--bad);color:#ff809f}
+    .fb .ex{font-weight:400;font-size:.92em;margin-top:8px;color:#ecfdf5;padding-top:8px;border-top:1px dashed rgba(255,255,255,.22);line-height:1.5}
+    .nav{display:flex;gap:12px;justify-content:space-between;align-items:center;margin:20px 0;flex-wrap:wrap}
+    .nav>div{display:flex;gap:10px}
+    .btn{padding:12px 24px;border:none;border-radius:10px;cursor:pointer;font-size:.96em;font-weight:700;transition:.2s;font-family:inherit;color:var(--tx)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-nav{background:var(--card);border:1px solid var(--bd)}
+    .btn-nav:hover{background:var(--hov);border-color:var(--pri);box-shadow:0 0 14px rgba(0,255,102,.25)}
+    .btn-pri{background:linear-gradient(135deg,#00e65b,#00ff66);color:#031c0e;font-weight:800;box-shadow:0 0 18px rgba(0,255,102,.45)}
+    .btn-pri:hover{background:linear-gradient(135deg,#00ff66,#66ff99);box-shadow:0 0 26px rgba(0,255,102,.7)}
+    .btn-pri .kbd{background:#031c0e;color:var(--pri);border-color:#031c0e;box-shadow:none}
+    .btn-warn{background:linear-gradient(135deg,#00cc52,#39ff14);color:#031c0e;font-weight:800;box-shadow:0 0 18px rgba(57,255,20,.45)}
+    .btn-bad{background:var(--badb);border:1px solid var(--bad);color:#ff809f}
+    .btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important;box-shadow:none!important}
+    .rcard{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:35px 25px;margin:20px 0;box-shadow:0 6px 30px rgba(0,0,0,.5)}
+    .circle{width:170px;height:170px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:15px auto 25px;font-size:2.6em;font-weight:800;border:8px solid;background:rgba(6,41,24,.85)}
+    .circle.high{border-color:var(--ok);color:var(--pri);box-shadow:0 0 22px rgba(0,255,102,.35)}.circle.medium{border-color:var(--warn);color:var(--star)}.circle.low{border-color:var(--bad);color:#ff809f}
+    .circle small{font-size:.35em;font-weight:500;color:var(--mut)}
+    .grade{display:inline-block;padding:8px 20px;border-radius:30px;font-size:1.15em;font-weight:800;margin-bottom:20px}
+    .g-promo{background:rgba(0,255,102,.2);color:var(--pri);border:2px solid var(--ok)}
+    .g-aprob{background:rgba(250,204,21,.2);color:var(--star);border:2px solid var(--warn)}
+    .g-desap{background:rgba(255,42,95,.2);color:#ff809f;border:2px solid var(--bad)}
+    .rstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:15px;margin:25px 0}
+    .sbox{background:rgba(6,41,24,.8);border:1px solid var(--bd);padding:15px;border-radius:12px}
+    .sbox .v{font-size:1.8em;font-weight:800}.sbox .l{font-size:.85em;color:var(--mut)}
+    @media(max-width:650px){.container{padding:12px}.qcard{padding:18px}h1{font-size:1.5em}.menu-grid{grid-template-columns:1fr}.nav{flex-direction:column}.nav>div{width:100%}.btn{flex:1;padding:12px 14px}.settings{flex-direction:column;align-items:flex-start}}
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📊 Microeconomía <span>1° Parcial</span></h1>
+    <p class="subtitle">Economía General — UTN FRC (Banco Oficial UV con Justificaciones)</p>
+    <div class="pills">
+      <div class="pill">📚 Total: <strong id="h-total">0</strong></div>
+      <div class="pill">⭐ Marcadas: <strong id="h-marc">0</strong></div>
+      <div class="pill">❌ Por reintentar: <strong id="h-err">0</strong></div>
+    </div>
+  </header>
+
+  <div class="shortcuts">
+    <span>⌨️ <strong>Atajos de teclado:</strong></span>
+    <span><span class="kbd">←</span> Anterior</span>
+    <span><span class="kbd">→</span> Siguiente</span>
+    <span><span class="kbd">Enter</span> Verificar / Avanzar</span>
+    <span><span class="kbd">1</span>-<span class="kbd">9</span> Elegir opción</span>
+  </div>
+
+  <div class="settings">
+    <b>⚙️ Opciones de Aleatoriedad:</b>
+    <div class="toggles">
+      <label class="toggle"><span class="switch"><input type="checkbox" id="sq"><span class="slider"></span></span>🔀 Mezclar preguntas</label>
+      <label class="toggle"><span class="switch"><input type="checkbox" id="so"><span class="slider"></span></span>🔀 Mezclar respuestas</label>
+    </div>
+  </div>
+
+  <div id="landing">
+    <div class="section-title">🎓 Evaluación & Práctica General</div>
+    <div class="menu-grid">
+      <button class="menu-btn exam-btn" onclick="start('exam')">⏱️ <b>SIMULACRO DE PARCIAL</b> (25 preguntas con tiempo)</button>
+      <button class="menu-btn all-btn" onclick="start('all')">📋 Todas las preguntas (<span id="t-count">0</span>)</button>
+    </div>
+
+    <div class="section-title">⭐ Práctica Especial</div>
+    <div class="menu-grid">
+      <button class="menu-btn marked-btn" id="b-marc" onclick="start('marked')" disabled>⭐ Practicar marcadas (<span id="m-count">0</span>)</button>
+      <button class="menu-btn retry-btn" id="b-err" onclick="start('retry')" disabled>🔄 Practicar errores (<span id="r-count">0</span>)</button>
+    </div>
+
+    <div class="section-title">📦 Practicar por bloques de 10</div>
+    <div class="menu-grid" id="groups"></div>
+  </div>
+
+  <div id="quiz-area">
+    <div class="top">
+      <div>
+        <span id="ptext"></span>
+        <span class="timer" id="timer" style="display:none">⏱️ <span id="ttext">00:00</span></span>
+      </div>
+      <div>
+        <button class="top-btn" onclick="togglePal()">🔢 Índice</button>
+        <button class="top-btn" onclick="exitQuiz()">🏠 Menú</button>
+      </div>
+    </div>
+
+    <div class="pbar"><div id="pbar"></div></div>
+    <div class="palette" id="pal"></div>
+    <div id="qbox"></div>
+
+    <div class="nav">
+      <div><button class="btn btn-nav" id="prev" onclick="go(-1)">⬅️ Anterior</button></div>
+      <div>
+        <button class="btn btn-pri" id="chk" onclick="check()">✅ Verificar <span class="kbd">↵ Enter</span></button>
+        <button class="btn btn-nav" id="next" onclick="go(1)">Siguiente ➡️</button>
+        <button class="btn btn-warn" id="fin" onclick="results()" style="display:none">📊 Finalizar ↵</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="results">
+    <div class="rcard">
+      <h2>📊 Resumen de Resultados</h2>
+      <p style="color:var(--mut);margin-bottom:15px">Puntuación obtenida en esta sesión</p>
+      <div id="gbox"></div>
+      <div class="circle" id="circle"><span id="pct">0%</span><small id="det"></small></div>
+      <div class="rstats">
+        <div class="sbox"><div class="v" style="color:var(--ok)" id="s-ok">0</div><div class="l">Completas (1.0 pt)</div></div>
+        <div class="sbox"><div class="v" style="color:var(--warn)" id="s-par">0</div><div class="l">Parciales (>0 pt)</div></div>
+        <div class="sbox"><div class="v" style="color:var(--bad)" id="s-no">0</div><div class="l">Incorrectas (0 pt)</div></div>
+        <div class="sbox" id="s-tbox" style="display:none"><div class="v" style="color:var(--pri)" id="s-t">00:00</div><div class="l">Tiempo empleado</div></div>
+      </div>
+      <div class="menu-grid">
+        <button class="btn btn-nav" onclick="menu()">🏠 Volver al menú</button>
+        <button class="btn btn-bad" onclick="start('retry')">🔄 Reintentar errores</button>
+        <button class="btn btn-pri" onclick="start(last[0],last[1])">🔁 Repetir mismo set</button>
+        <button class="btn btn-nav" onclick="start('marked')" style="border-color:var(--warn);color:var(--star)">⭐ Practicar marcadas</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="preguntas.js"></script>
+<script src="preguntas2.js" onerror="void 0"></script>
+<script>
+const PROMO = 80, APROB = 60;
+const $ = id => document.getElementById(id);
+const ld = k => { try { return JSON.parse(localStorage.getItem(k) || "[]") } catch (e) { return [] } };
+let marc = ld("micro_marc"), errs = ld("micro_err"), S = null, last = ["all", 0];
+const sv = () => { try { localStorage.setItem("micro_marc", JSON.stringify(marc)); localStorage.setItem("micro_err", JSON.stringify(errs)) } catch (e) {} };
+const shuf = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]] } return a };
+const fmt = s => String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ").trim();
+const show = id => ["landing", "quiz-area", "results"].forEach(x => $(x).style.display = x === id ? "block" : "none");
+
+function menu() {
+  if (S) clearInterval(S.tm);
+  const Q = ALL_QUESTIONS;
+  ["h-total", "t-count"].forEach(i => $(i).textContent = Q.length);
+  $("h-marc").textContent = $("m-count").textContent = marc.length;
+  $("h-err").textContent = $("r-count").textContent = errs.length;
+  $("b-marc").disabled = !marc.length;
+  $("b-err").disabled = !errs.length;
+  $("groups").innerHTML = "";
+  for (let g = 0; g < Math.ceil(Q.length / 10); g++) {
+    const b = document.createElement("button");
+    b.className = "menu-btn";
+    b.textContent = "Bloque " + (g + 1) + " (" + (g * 10 + 1) + "–" + Math.min(Q.length, g * 10 + 10) + ")";
+    b.onclick = () => start("group", g);
+    $("groups").appendChild(b);
+  }
+  show("landing");
+}
+
+function start(mode, g) {
+  const Q = ALL_QUESTIONS;
+  let list;
+  if (mode === "exam") list = shuf(Q).slice(0, 25);
+  else if (mode === "marked") list = Q.filter(q => marc.includes(q.id));
+  else if (mode === "retry") list = Q.filter(q => errs.includes(q.id));
+  else if (mode === "group") list = Q.slice(g * 10, g * 10 + 10);
+  else list = Q;
+
+  if (!list.length) { alert("No hay preguntas disponibles en esta sección todavía."); return; }
+  if (mode !== "exam" && $("sq").checked) list = shuf(list);
+
+  list = list.map(q => {
+    if (q.type === "single" || q.type === "multi") {
+      let o = q.options.map((t, k) => ({ t, ok: q.correct.includes(k) }));
+      if ($("so").checked) o = shuf(o);
+      return { ...q, o };
+    }
+    return q;
+  });
+
+  last = [mode, g || 0];
+  if (S) clearInterval(S.tm);
+  S = { mode, list, i: 0, t: 0, res: list.map(() => ({ sel: [], txt: "", done: false, score: 0 })) };
+  $("timer").style.display = $("s-tbox").style.display = mode === "exam" ? "" : "none";
+  if (mode === "exam") S.tm = setInterval(() => { S.t++; $("ttext").textContent = fmt(S.t) }, 1000);
+  $("ttext").textContent = "00:00";
+  $("pal").style.display = "none";
+  show("quiz-area");
+  render();
+}
+
+function render() {
+  const q = S.list[S.i], r = S.res[S.i], n = S.list.length;
+  $("ptext").textContent = "Pregunta " + (S.i + 1) + " de " + n;
+  $("pbar").style.width = ((S.i + 1) / n * 100) + "%";
+  const bl = { single: "Una opción", multi: "Selección múltiple", tf: "Verdadero / Falso", text: "Respuesta escrita" }[q.type];
+  let h = '<div class="qcard' + (r.done ? " " + cls(r.score) : "") + '" id="qc"><div class="qhead"><span class="badge b-' + q.type + '">' + bl + '</span><button class="star-btn' + (marc.includes(q.id) ? " on" : "") + '" onclick="star()">' + (marc.includes(q.id) ? "⭐ Marcada" : "☆ Marcar") + '</button></div><div class="qtext"></div>';
+  
+  if (q.type === "text") {
+    h += '<input class="tin" id="tin" autocomplete="off" placeholder="Escribí tu respuesta" value="">';
+  } else {
+    h += '<ul class="opts">';
+    (q.o || q.options.map((t, k) => ({ t, ok: q.correct.includes(k) }))).forEach((o, k) => {
+      const on = r.sel.includes(k);
+      let c = "opt" + (on ? " sel" : "");
+      if (r.done) { c = "opt" + (o.ok ? " right" : on ? " wrong" : ""); }
+      h += '<li><label class="' + c + '"><input type="' + (q.type === "multi" ? "checkbox" : "radio") + '" name="o" ' + (on ? "checked " : "") + (r.done ? "disabled " : "") + 'onchange="pick(' + k + ')"><span><span class="key">' + (k + 1) + '</span><span class="ot"></span></span></label></li>';
+    });
+    h += "</ul>";
+  }
+  h += '<div class="fb" id="fb"></div></div>';
+  $("qbox").innerHTML = h;
+  $("qbox").querySelector(".qtext").textContent = q.text;
+
+  if (q.type !== "text") {
+    $("qbox").querySelectorAll(".ot").forEach((e, k) => e.textContent = (q.o || q.options.map(t => ({ t })))[k].t);
+  } else {
+    const t = $("tin");
+    t.value = r.txt;
+    t.oninput = () => r.txt = t.value;
+    if (r.done) { t.disabled = true; t.className = "tin " + (r.score ? "right" : "wrong"); }
+  }
+
+  if (r.done) feedback(q, r);
+  $("prev").disabled = S.i === 0;
+  const last_ = S.i === n - 1;
+  $("next").style.display = last_ ? "none" : "";
+  $("fin").style.display = last_ ? "" : "none";
+  $("chk").disabled = r.done;
+  paintPal();
+}
+
+const cls = s => s === 1 ? "ok" : s > 0 ? "par" : "no";
+
+function pick(k) {
+  const q = S.list[S.i], r = S.res[S.i];
+  if (r.done) return;
+  if (q.type === "multi") r.sel = r.sel.includes(k) ? r.sel.filter(x => x !== k) : [...r.sel, k];
+  else r.sel = [k];
+  render();
+}
+
+function check() {
+  const q = S.list[S.i], r = S.res[S.i];
+  if (r.done) return;
+  if (q.type === "text") {
+    if (!r.txt.trim()) return;
+    r.score = q.answers.some(a => norm(a) === norm(r.txt)) ? 1 : 0;
+  } else {
+    if (!r.sel.length) return;
+    const nC = q.o ? q.o.filter(o => o.ok).length : q.correct.length;
+    const hit = r.sel.filter(k => (q.o ? q.o[k].ok : q.correct.includes(k))).length;
+    const bad = r.sel.length - hit;
+    r.score = hit === nC && !bad ? 1 : Math.max(0, (hit - bad) / nC);
+    if (q.type !== "multi") r.score = Math.round(r.score);
+  }
+  r.done = true;
+  if (r.score < 1) { if (!errs.includes(q.id)) errs.push(q.id); } else errs = errs.filter(x => x !== q.id);
+  sv();
+  render();
+}
+
+function feedback(q, r) {
+  const f = $("fb");
+  f.className = "fb show " + cls(r.score);
+  let m = r.score === 1 ? "✅ ¡Correcto! +1.00 pt" : r.score > 0 ? "⚠️ Parcial +" + r.score.toFixed(2) + " pt" : "❌ Incorrecto (0 pt)";
+  f.textContent = m;
+  const ex = [];
+  if (q.type === "text" && r.score < 1) ex.push("Respuesta esperada: " + q.answers[0]);
+  if (q.explanation) ex.push(q.explanation);
+  ex.forEach(t => { const d = document.createElement("div"); d.className = "ex"; d.textContent = t; f.appendChild(d); });
+}
+
+function star() {
+  const id = S.list[S.i].id;
+  marc = marc.includes(id) ? marc.filter(x => x !== id) : [...marc, id];
+  sv();
+  render();
+}
+
+function go(d) {
+  const j = S.i + d;
+  if (j >= 0 && j < S.list.length) { S.i = j; render(); }
+}
+
+function togglePal() {
+  const p = $("pal");
+  p.style.display = p.style.display === "flex" ? "none" : "flex";
+}
+
+function paintPal() {
+  $("pal").innerHTML = "";
+  S.list.forEach((q, i) => {
+    const r = S.res[i], b = document.createElement("div");
+    b.className = "pi" + (i === S.i ? " cur" : "") + (r.done ? " " + cls(r.score) : "") + (marc.includes(q.id) ? " st" : "");
+    b.textContent = i + 1;
+    b.onclick = () => { S.i = i; render(); };
+    $("pal").appendChild(b);
+  });
+}
+
+function exitQuiz() {
+  if (confirm("¿Volver al menú principal?")) menu();
+}
+
+function results() {
+  clearInterval(S.tm);
+  let ok = 0, par = 0, no = 0, pts = 0;
+  S.res.forEach(r => { pts += r.score; if (r.score === 1) ok++; else if (r.score > 0) par++; else no++; });
+  const n = S.list.length, p = (pts / n) * 100;
+  $("pct").textContent = Math.round(p) + "%";
+  $("det").textContent = pts.toFixed(2) + " / " + n.toFixed(2) + " pts";
+  $("circle").className = "circle " + (p >= PROMO ? "high" : p >= APROB ? "medium" : "low");
+  $("s-ok").textContent = ok;
+  $("s-par").textContent = par;
+  $("s-no").textContent = no;
+  $("s-t").textContent = fmt(S.t);
+  $("gbox").innerHTML = S.mode === "exam" ? '<div class="grade ' + (p >= PROMO ? "g-promo" : p >= APROB ? "g-aprob" : "g-desap") + '">' + (p >= PROMO ? "🏆 PROMOCIONADO" : p >= APROB ? "✅ APROBADO" : "❌ DESAPROBADO") + " · Nota " + (p / 10).toFixed(1) + '</div>' : "";
+  show("results");
+}
+
+document.addEventListener("keydown", e => {
+  if ($("quiz-area").style.display !== "block") return;
+  const typing = document.activeElement && document.activeElement.id === "tin";
+  const r = S.res[S.i], q = S.list[S.i];
+  if (e.key === "Enter") { e.preventDefault(); if (!r.done) check(); else if (S.i < S.list.length - 1) go(1); else results(); }
+  else if (typing) return;
+  else if (e.key === "ArrowLeft") go(-1);
+  else if (e.key === "ArrowRight") go(1);
+  else if (/^[1-9]$/.test(e.key) && q.type !== "text") {
+    const k = +e.key - 1;
+    if (k < q.options.length) pick(k);
+  }
+});
+
+window.addEventListener("load", menu);
+</script>
+</body>
+</html>
